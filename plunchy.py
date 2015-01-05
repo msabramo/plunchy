@@ -3,6 +3,13 @@ import shutil
 from glob import glob
 from subprocess import call, Popen, PIPE
 
+try:
+    import pygments
+    import pygments.lexers
+    import pygments.formatters
+except ImportError:
+    pygments = None
+
 PLUNCHY_FILE = os.path.expanduser('~/.plunchy')
 DIRS = ['~/Library/LaunchAgents']
 ROOT_DIRS = [
@@ -154,7 +161,13 @@ class Plunchy(object):
 
         for base, path in self.__plists(self.arg).items():
             f = open(path, 'r')
-            print f.read()
+            output = f.read()
+            if pygments:
+                output = pygments.highlight(
+                    output,
+                    pygments.lexers.XmlLexer(),
+                    pygments.formatters.Terminal256Formatter())
+            print(output)
             f.close()
 
     def edit(self):
