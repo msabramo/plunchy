@@ -74,7 +74,7 @@ class Plunchy(object):
         for path in plists.values():
             call(['launchctl', 'load', path], stdout=DEVNULL, stderr=DEVNULL)
 
-        print '\n'.join(['Started %s' % p for p in plists.keys()])
+        print('\n'.join(['Started %s' % p for p in plists.keys()]))
 
     def stop(self):
         if not self.arg:
@@ -84,7 +84,7 @@ class Plunchy(object):
         for path in plists.values():
             call(['launchctl', 'unload', path], stdout=DEVNULL, stderr=DEVNULL)
 
-        print '\n'.join(['Stopped %s' % p for p in plists.keys()])
+        print('\n'.join(['Stopped %s' % p for p in plists.keys()]))
 
     def restart(self):
         self.stop()
@@ -94,7 +94,7 @@ class Plunchy(object):
         if not (self.arg or self.OPTIONS['verbose']):
             raise ValueError('list|ls [--verbose] [pattern]')
 
-        print '\n'.join(self.__plists(self.arg).keys())
+        print('\n'.join(self.__plists(self.arg).keys()))
 
     def ls(self):
         self.list()
@@ -123,7 +123,7 @@ class Plunchy(object):
         with open(PLUNCHY_FILE, 'a+') as f:
             f.write('{}\n'.format(self.arg))
 
-        print 'Added {}'.format(self.arg)
+        print('Added {}'.format(self.arg))
 
     def install(self):
         return self.add()
@@ -135,7 +135,7 @@ class Plunchy(object):
         for d in self.__dirs():
             base = os.path.basename(self.arg)
             os.symlink(self.arg, os.path.join(d, base))
-            print 'Installed {} into {} via symlink'.format(self.arg, d)
+            print('Installed {} into {} via symlink'.format(self.arg, d))
             break
 
     def copy(self):
@@ -145,7 +145,7 @@ class Plunchy(object):
         for d in self.__dirs():
             base = os.path.basename(self.arg)
             shutil.copy(self.arg, os.path.join(d, base))
-            print 'Installed {} into {} via copy'.format(self.arg, d)
+            print('Installed {} into {} via copy'.format(self.arg, d))
             break
 
     def show(self):
@@ -153,9 +153,8 @@ class Plunchy(object):
             raise ValueError('show [pattern]')
 
         for base, path in self.__plists(self.arg).items():
-            f = open(path, 'r')
-            print f.read()
-            f.close()
+            with open(path) as f:
+                print(f.read())
 
     def edit(self):
         for path in self.__plists(self.arg).values():
