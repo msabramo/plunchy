@@ -3,8 +3,8 @@ plunchy
 
 ``plunchy`` is a simple interface into OS X's ``launchctl``. It is based on the idea behind Mike Perham's ``lunchy`` (`link <https://github.com/mperham/lunchy>`_) Ruby script, though there are a few small differences between the two:
 
-  1. By default, ``plunchy`` does not install items into the system's ``LaunchAgents`` folders. Unless you jump through hoops, items in those folders are automatically started at system boot, defeating the purpose of managing startup and shutdown for your launch agents.
-  2. Also by default, if you do want a file to be installed in a ``LaunchAgents`` folder, ``plunchy`` will symlink the file, rather than copy it. This allows you to automatically receive updates if the launch agent is updated.
+1. By default, ``plunchy`` does not install items into the system's ``LaunchAgents`` folders. Unless you jump through hoops, items in those folders are automatically started at system boot, defeating the purpose of managing startup and shutdown for your launch agents.
+2. Also by default, if you do want a file to be installed in a ``LaunchAgents`` folder, ``plunchy`` will symlink the file, rather than copy it. This allows you to automatically receive updates if the launch agent is updated.
 
 
 ``plunchy`` does want to maintain the simplicity of the original, however, so the available commands largely mirror ``lunchy``'s:
