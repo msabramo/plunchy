@@ -9,21 +9,21 @@ plunchy
 
 ``plunchy`` does want to maintain the simplicity of the original, however, so the available commands largely mirror ``lunchy``'s:
 
-  * ``ls [pattern]``        List all launch agents, or only ones matching the given pattern.
-  * ``list [pattern]``      Alias for ``ls``
-  * ``start {pattern}``     Start the launch agent matching the given pattern.
-  * ``stop {pattern}``      Stop the launch agent matching the given pattern.
-  * ``restart {pattern}``   Restart the launch agent matching the given pattern.
-  * ``status {pattern}``    Display the status of all launch agents matching the pattern.
-  * ``show {pattern}``      See the launch agent with the specified pattern
-  * ``edit {pattern}``      Edit the launch agent with the specified pattern
+* ``ls [pattern]``        List all launch agents, or only ones matching the given pattern.
+* ``list [pattern]``      Alias for ``ls``
+* ``start {pattern}``     Start the launch agent matching the given pattern.
+* ``stop {pattern}``      Stop the launch agent matching the given pattern.
+* ``restart {pattern}``   Restart the launch agent matching the given pattern.
+* ``status {pattern}``    Display the status of all launch agents matching the pattern.
+* ``show {pattern}``      See the launch agent with the specified pattern
+* ``edit {pattern}``      Edit the launch agent with the specified pattern
 
 The main area where ``plunchy`` differs, however, is in the installation of scripts. ``plunchy`` provides the following commands for installing scripts:
 
-  * ``add {path}``          Add the agent to ``~/.plunchy`` to be started/stopped manually
-  * ``install {path}``      Alias for ``add``
-  * ``link {path}``         Install the agent into ``~/Library/LaunchAgents`` via symlink (*)
-  * ``copy {path}``         Install the agent into ``~/Library/LaunchAgents`` via file copy (*)
+* ``add {path}``          Add the agent to ``~/.plunchy`` to be started/stopped manually
+* ``install {path}``      Alias for ``add``
+* ``link {path}``         Install the agent into ``~/Library/LaunchAgents`` via symlink (*)
+* ``copy {path}``         Install the agent into ``~/Library/LaunchAgents`` via file copy (*)
 
 
 (\*) Doing this means the launch agent will be loaded/started when the system boots up.
@@ -34,7 +34,9 @@ Installation
 
 The easiest way to install `plunchy` is via `pip`:
 
-  ``pip install plunchy``
+.. code-block:: console
+
+    pip install plunchy
 
 License
 -------
